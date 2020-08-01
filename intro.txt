@@ -1,0 +1,65 @@
+https://tim.aalto.fi/submission/2155771
+
+Implement a system that tracks the exercise points for a course. The course has six exercise rounds, for which points are tracked separately. For each student, the system will store a student number, first name and last name, and the points for six exercise rounds as integers. For strings the system should store at least 20 characters, but you can decide yourself how to handle longer strings. You can assume that the student number is at most 6 characters long. The program should support arbitrarily large number of students.
+
+System has the following functions:
+
+A number lastname firstname : Add student : Adds a student by given studen number to the database.
+Initially the student has 0 points. For example: A 234567 Opiskelija Osmo (1 p)
+
+U number round points : Update points : Sets the points for exercise round “round”.
+You can assume that there are at most 6 exercise rounds. The points will be integers.
+If the given student number does not exist, an error message should be given. (1 p)
+
+L : Print points : Prints the stored students, with their student number, last name and first name,
+along with points of each exercise round and total points.
+The students should be printed in the order of total points such that the student with most total points will be printed first.
+This command is worth two points such that a functional output that contains all students will give one point,
+and if the order is correct, you will get a second point. (max. 2 p)
+
+W filename : Save results : Writes the results to a file with given filename. (1 p)
+
+O filename : Load results : Loads the results from file, and replaces the existing results in memory. (1 p)
+
+Q : Exit program: Exits program and releases all allocated memory.
+This operation must be implemented so that you can find all possible memory leaks.
+
+
+In addition to the above commands, there should be a working main function that repeatedly asks commands from user and acts accordingly.
+
+The commands start with one captial letter and may be followed by some number of parameters, separated by space, depending on the command. Below is an example of possible input sequence:
+
+A 234567 Opiskelija Osmo
+A 111111 Ahkera Antti
+U 234567 1 7
+U 111111 1 14
+U 111111 2 12
+L
+W pisteet
+Q
+As a result, Osmo Opiskelija will have altogether 7 points, and Antti Ahkera a total of 26 points. In the results table Antti Ahkera will be output first, and the the score database will be stored to file “pisteet”.
+
+You can design your program in any way you want, but apply clear structure to logical functions, and name the functions and variables appropriately so that the program is easy to read. Implement the program in single .c file. You can also use one header file for your definitions, but you can include them also in the .c file and omit the header file.
+
+Other general requirements and instructions:
+
+To facilitate testing, the aforementioned command syntax must be precisely followed
+
+You must use dynamic memory to implement the storage. A large static array is not acceptable. The dynamic memory allocation should be done based on the actual need: malloc(1000000) is not acceptable.
+
+After every command, the system must give an output that tells whether the command was succesful, or whether its execution failed.
+
+You can assume a maximum lenght for user input line. For example, 80 characters is sufficient.
+
+Clearly erroneus commands must give on error message, and at least the program must not crash as result. However, you can assume that names and other strings not contain whitespaces (i.e., whitespaces can be assumed as command field separators).
+
+Evaluation criteria
+Each functionality that is implemented correctly: 1 point, in L-command max. 2 points (total max. 6 points)
+
+Working main function and command parsing: 2 points (required to pass)
+
+Appropriate programming style (distribution to functions, appropriate indentation, appropriate naming, comments as needed): 2 points
+
+Compiler gives warnings: max. -2 points
+
+There are valgrind errors: max. -2 points
